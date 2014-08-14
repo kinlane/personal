@@ -1,14 +1,19 @@
 ---
 layout: default
-title: About Alternate Kin Lane
-overview: true
+title: Personal
 ---
 
-<h1 class="title">About Alternate Kin Lane</h1>
-
-<p>While immersed in a world of technology, reading and writing about real-world technologies, I needed an outlet, somewhere I could publish my fictional thoughts and stories.</p>
-<p>I find it easier to get back to the every day grind of tech blogging, if I have a place to produce fictional work. So I created an alternate reality where I can blog about the weird shit, I think I see every day.</p>
-<p>Nothing you read at alternate.kinlane.com is real, if you are looking for my non-fiction work visit <a href="http://kinlane.com/">Kin Lane</a> or <a href="http://apievangelist.com/">API Evangelist</a></p>
-<p>If you have any questions you can email me at <a href="mailto: kinlane@gmail.com">kinlane@gmail.com</a> or tweet <a href="http://twitter.com/kinlane">@kinlane</a>.</p>
-<br /><br />
-<p align="center"><img src="https://s3.amazonaws.com/kinlane-productions/matrix-pics/washington-crossing-the-delaware-cropped.png" width="400" /></p>
+<h1 class="title">Personal Thoughts</h1>
+              
+{% for post in site.posts limit:25 %}
+<div class="post">
+    
+    <p><a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}" style="color:#000;"><h4><strong>{{ post.title }}</strong></h4></a>
+    <p><i><strong><span class="small">Posted on</span> <span class="post-date">{{ post.date | date:"%m-%d-%Y" }}</span></strong></i></p>
+    <p><a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}"><img src="{{ post.image }}" width="150" align="right" /></a></p>
+    <p>{{ post.content | strip_html | truncatewords: 100 }}...<a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}" style="color:#000; font-weight: bold;">read more</a>.</p>
+    <br />
+    <hr />     
+   
+</div>   
+{% endfor %}                   
